@@ -10,37 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_push_swap.h"
 
 int	ft_reverse_rotate(t_stack **stack)
 {
-	int tmp;
+	int	tmp;
 	int	i;
 	int	j;
 
-	if (!stack || !*stack || !((*stack) -> array))
+	if (!stack || !*stack || !((*stack)->array))
 		return (0);
 	if (!ft_can_swap(*stack))
 		return (0);
-	j = (*stack) -> size - 1;
-	tmp = (*stack) -> array[j];
-	i = (*stack) -> size - 1;
+	j = (*stack)->size - 1;
+	tmp = (*stack)->array[j];
+	i = (*stack)->size - 1;
 	while (i > 0)
 	{
-		(*stack) -> array[i] = (*stack) -> array[i - 1];
+		(*stack)->array[i] = (*stack)->array[i - 1];
 		i--;
 	}
-	(*stack) -> array[0] = tmp;
+	(*stack)->array[0] = tmp;
 	return (1);
 }
 
 void	ft_rra(t_data *d)
 {
 	if (!(d))
-		return;
-	if (ft_reverse_rotate(&(d -> a)) == 0)
-		return;
+		return ;
+	if (ft_reverse_rotate(&(d->a)) == 0)
+		return ;
 	else
 		ft_print_op("rra");
 }
@@ -48,9 +47,9 @@ void	ft_rra(t_data *d)
 void	ft_rrb(t_data *d)
 {
 	if (!(d))
-		return;
-	if (ft_reverse_rotate(&(d -> b)) == 0)
-		return;
+		return ;
+	if (ft_reverse_rotate(&(d->b)) == 0)
+		return ;
 	else
 		ft_print_op("rrb");
 }
@@ -58,15 +57,14 @@ void	ft_rrb(t_data *d)
 void	ft_rrr(t_data *d)
 {
 	int	resulta;
-	int resultb;
-	
+	int	resultb;
+
 	if (!(d))
-		return;
-	resulta = ft_reverse_rotate(&(d -> a));
-	resultb = ft_reverse_rotate(&(d -> b));
+		return ;
+	resulta = ft_reverse_rotate(&(d->a));
+	resultb = ft_reverse_rotate(&(d->b));
 	if (resulta || resultb)
 		ft_print_op("rrr");
 	else
-		return;
+		return ;
 }
-

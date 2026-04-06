@@ -17,7 +17,7 @@ int     ft_get_chunk_size(int size)
 
 }
 
-void    ft_push_chunks(t_stack *a, t_stack *b, int chunk)
+void    ft_push_chunks(t_data *d, int chunk)
 {
 
 }
@@ -27,7 +27,7 @@ int     ft_find_max_pos(t_stack *b)
 
 }
 
-void    ft_sort_medium(t_stack *a, t_stack *b)
+void    ft_sort_medium(t_data *d)
 {
 
 }

@@ -12,13 +12,13 @@
 
 #include "ft_push_swap.h"
 
-int ft_is_full(t_stack *stack)
+int	ft_is_full(t_stack *stack)
 {
 	if (!stack)
 		return (0);
-	if (stack -> capacity <= 0)
+	if (stack->capacity <= 0)
 		return (0);
-	if (stack -> size >= stack -> capacity)
+	if (stack->size >= stack->capacity)
 		return (1);
 	else
 		return (0);
@@ -26,7 +26,7 @@ int ft_is_full(t_stack *stack)
 
 int	ft_is_empty(t_stack *stack)
 {
-	if (!stack || stack -> size == 0)
+	if (!stack || stack->size == 0)
 		return (1);
 	else
 		return (0);
@@ -36,13 +36,13 @@ void	ft_free_stack(t_stack **stack)
 {
 	if (!stack || !*stack)
 		return ;
-	if ((*stack) -> array)
+	if ((*stack)->array)
 	{
-		free ((*stack) -> array);
-		(*stack) -> array = 0;
+		free ((*stack)->array);
+		(*stack)->array = 0;
 	}
-	(*stack) -> size = 0;
-	(*stack) -> capacity = 0;
+	(*stack)->size = 0;
+	(*stack)->capacity = 0;
 	free (*stack);
 	*stack = 0;
 }
@@ -51,11 +51,11 @@ int	ft_init_stack(t_stack *stack, int capacity)
 {
 	if (!stack || capacity <= 0)
 		return (0);
-	stack -> array = malloc(sizeof(int) * capacity);
-	if (!(stack -> array))
+	stack->array = malloc(sizeof(int) * capacity);
+	if (!(stack->array))
 		return (0);
-	stack -> size = 0;
-	stack -> capacity = capacity;
+	stack->size = 0;
+	stack->capacity = capacity;
 	return (1);
 }
 
@@ -63,12 +63,12 @@ int	ft_is_sorted(t_stack *stack)
 {
 	int	i;
 
-	if (!stack || stack -> size <= 1)
+	if (!stack || stack->size <= 1)
 		return (1);
 	i = 0;
-	while (i < (stack -> size) - 1)
+	while (i < (stack->size) - 1)
 	{
-		if (stack -> array[i] > stack -> array[i + 1])
+		if (stack->array[i] > stack->array[i + 1])
 			return (0);
 		i++;
 	}

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 13:35:05 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/04 16:49:28 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/06 11:32:51 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 long    ft_atol(const char *str, t_stacks *stacks)
 {

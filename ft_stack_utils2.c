@@ -16,16 +16,16 @@ void	ft_shift_up(t_stack *stack)
 {
 	int	i;
 
-	if (!stack || !(stack -> array) || stack -> capacity <= 0
-		|| (stack -> capacity) <= (stack -> size))
+	if (!stack || !(stack->array) || stack->capacity <= 0
+		|| (stack->capacity) <= (stack->size))
 		return ;
-	i = stack -> size - 1;
+	i = stack->size - 1;
 	while (i >= 0)
 	{
-		stack -> array[i + 1] = stack -> array[i];
+		stack->array[i + 1] = stack->array[i];
 		i--;
 	}
-	stack -> size++;
+	stack->size++;
 }
 
 void	ft_shift_down(t_stack *stack)
@@ -34,17 +34,17 @@ void	ft_shift_down(t_stack *stack)
 	int	j;
 
 	if (!stack || !(stack -> array)
-		|| stack -> capacity <= 0 || stack -> size == 0)
+		|| stack->capacity <= 0 || stack->size == 0)
 		return ;
 	i = 0;
-	j = stack -> size - 1;
-	while (i < stack -> size - 1)
+	j = stack->size - 1;
+	while (i < stack->size - 1)
 	{
-		stack -> array[i] = stack -> array[i + 1];
+		stack->array[i] = stack->array[i + 1];
 		i++;
 	}
-	stack -> size--;
-	stack -> array[j] = 0;
+	stack->size--;
+	stack->array[j] = 0;
 }
 
 void	ft_print_op(char *op)
@@ -60,17 +60,16 @@ void	ft_print_op(char *op)
 
 int	ft_can_swap(t_stack *stack)
 {
-	if (!stack || !(stack -> array)
-		|| stack -> size < 2)
+	if (!stack || !(stack->array)
+		|| stack->size < 2)
 		return (0);
 	return (1);
 }
 
 int	ft_can_push(t_stack *stack)
 {
-	if (!stack || !(stack -> array)
-		|| stack -> size == 0)
+	if (!stack || !(stack->array)
+		|| stack->size == 0)
 		return (0);
 	return (1);
 }
-

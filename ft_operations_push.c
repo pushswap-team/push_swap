@@ -21,7 +21,7 @@ int	ft_push(t_stack **from, t_stack **to)
 	if (ft_is_full(*to))
 		return (0);
 	ft_shift_up(*to);
-	(*to) -> array[0] = (*from) -> array[0];
+	(*to)->array[0] = (*from)->array[0];
 	ft_shift_down(*from);
 	return (1);
 }
@@ -29,9 +29,9 @@ int	ft_push(t_stack **from, t_stack **to)
 void	ft_pa(t_data *d)
 {
 	if (!(d))
-		return;
-	if (ft_push(&(d -> b), &(d -> a)) == 0)
-		return;
+		return ;
+	if (ft_push(&(d->b), &(d->a)) == 0)
+		return ;
 	else
 		ft_print_op("pa");
 }
@@ -39,10 +39,9 @@ void	ft_pa(t_data *d)
 void	ft_pb(t_data *d)
 {
 	if (!(d))
-		return;
-	if (ft_push(&(d -> a), &(d -> b)) == 0)
-		return;
+		return ;
+	if (ft_push(&(d->a), &(d->b)) == 0)
+		return ;
 	else
 		ft_print_op("pb");
 }
-
