@@ -17,14 +17,6 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-typedef struct s_stacks
-{
-	int	*a;
-	int	*b;
-	int	size_a;
-	int	size_b;
-}	t_stacks;
-
 typedef struct s_stack
 {
 	int	*array;// Dinamik array, sayıları tutar
@@ -69,10 +61,19 @@ int		ft_push(t_stack **from, t_stack **to);
 int		ft_is_sorted(t_stack *stack);
 int		ft_rotate(t_stack **stack);
 int		ft_reverse_rotate(t_stack **stack);
-void	error_exit(t_stacks *stacks);
-void	parse_args(int argc, char **argv, t_stacks *stacks);
-void	check_duplicates(t_stacks *stacks);
-double	compute_disorder(int *a, int size); // aşama 3 fonskiyonu 
+int		ft_find_min_pos(t_stack *a);
+int		ft_get_max_bits(t_stack *a);
+int		ft_get_chunk_size(int size);
+int		ft_count_arguments(char	**args);
+int		ft_allocate_stacks(t_stack *a, t_stack *b);
+void	ft_parse_and_validate(t_stack *a, t_stack *b, char **args, int is_split, int argc);
+void	ft_sort_complex(t_stack *a, t_stack *b);
+void	ft_radix_pass(t_stack *a, t_stack *b, int bit);
+void	ft_sort_simple(t_data *d);
+void	ft_push_min_to_b(t_data *d);
+void	ft_error_exit(t_stack *a, t_stack *b);
+void	ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b);
+void	ft_check_duplicates(t_stack *a, t_stack *b);
 void	ft_sa(t_data *d);
 void	ft_sb(t_data *d);
 void	ft_ss(t_data *d);
@@ -89,7 +90,8 @@ void	ft_ra(t_data *d);
 void	ft_rb(t_data *d);
 void	ft_rr(t_data *d);
 char	**ft_split(char const *s, char c);
-long	ft_atol(const char *str, t_stacks *stacks);
+char	**ft_get_args_source(char **argv, int argc);
+long	ft_atol(const char *str, t_stack *a, t_stack *b);
 double	ft_compute_disorder(int *a, int size);// aşama 3 fonskiyonu 
 
 #endif

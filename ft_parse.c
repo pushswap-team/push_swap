@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 13:35:05 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/06 11:32:51 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:51:48 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-long    ft_atol(const char *str, t_stacks *stacks)
+long    ft_atol(const char *str, t_stack *a, t_stack *b)
 {
     long    res;
     int     sign;
@@ -28,40 +28,40 @@ long    ft_atol(const char *str, t_stacks *stacks)
         i++;
     }
     if (!str[i]) 
-        error_exit(stacks);
+        ft_error_exit(a, b);
     while (str[i])
     {
         if (str[i] < '0' || str[i] > '9')
-            error_exit(stacks); 
+            ft_error_exit(a, b); 
         res = (res * 10) + (str[i] - '0');
         i++;
     }
     res *= sign;
     if (res > 2147483647 || res < -2147483648)
-        error_exit(stacks);
+        ft_error_exit(a, b);
     return (res);
 }
 
-void    check_duplicates(t_stacks *stacks)
+void    ft_check_duplicates(t_stack *a, t_stack *b)
 {
     int i;
     int j;
 
     i = 0;
-    while (i < stacks->size_a)
+    while (i < a->size)
     {
         j = i + 1;
-        while (j < stacks->size_a)
+        while (j < a->size)
         {
-            if (stacks->a[i] == stacks->a[j])
-                error_exit(stacks); 
+            if (a->array[i] == a->array[j])
+                ft_error_exit(a, b); 
             j++;
         }
         i++;
     }
 }
 
-void    free_split(char **str)
+void    ft_free_split(char **str)
 {
     int i;
 
@@ -76,34 +76,20 @@ void    free_split(char **str)
     free(str);
 }
 
-void    parse_args(int argc, char **argv, t_stacks *stacks)
+void    ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b)
 {
     int     i;
-    char    **args;
 
-   
-    if (argc == 2)
-        args = ft_split(argv[1], ' ');
-    else
-        args = argv + 1;
-
-    i = 0;
-    while (args[i])
-        i++;
-    stacks->size_a = i;
-    stacks->size_b = 0;
-
-    stacks->a = malloc(sizeof(int) * stacks->size_a);
-    stacks->b = malloc(sizeof(int) * stacks->size_a);
-    if (!stacks->a || !stacks->b)
-        error_exit(stacks); 
-
+    argv = ft_get_args_source(argv, argc);
+    a->size = ft_count_arguments(argv);
+    b->size = 0;
+    ft_allocate_stacks(a, b);
     i = -1;
-    while (++i < stacks->size_a)
-        stacks->a[i] = ft_atol(args[i], stacks); 
+    while (++i < a->size)
+        a->array[i] = ft_atol(argv[i], a, b); 
 
     if (argc == 2)
-        free_split(args);
+        ft_free_split(argv);
 
-    check_duplicates(stacks);
+    ft_check_duplicates(a, b);
 }
