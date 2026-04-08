@@ -6,7 +6,7 @@
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 13:35:05 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/08 12:54:08 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/08 16:24:26 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ void	ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b)
 	a->size = ft_count_arguments(argv);
 	b->size = 0;
 	ft_allocate_stacks(a, b);
-	i = -1;
+	i = 0;
 	while (i < a->size)
 	{
-		i++;
 		a->array[i] = ft_atol(argv[i], a, b);
+		i++;
 	}
 	if (argc == 2)
 		ft_free_split(argv);

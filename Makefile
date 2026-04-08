@@ -6,11 +6,11 @@
 #    By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/23 14:10:16 by bayram-seve       #+#    #+#              #
-#    Updated: 2026/04/07 14:54:11 by bdayakli         ###   ########.fr        #
+#    Updated: 2026/04/08 15:36:19 by bdayakli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = push_swap
+NAME        = ft_push_swap
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 RM          = rm -f
@@ -20,7 +20,7 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 
 SRCS        = ft_parse.c \
 			  ft_parse_halpers.c \
-			  ft_utils.c \
+			  ft_main.c \
 			  ft_index.c \
 			  ft_sort_simple.c \
 			  ft_sort_medium.c \

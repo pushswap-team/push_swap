@@ -17,12 +17,12 @@ int     ft_get_max_bits(t_stack *a)
 
 }
 
-void    ft_radix_pass(t_stack *a, t_stack *b, int bit)
+void    ft_radix_pass(t_data *d, int bit)
 {
 
 }
 
-void    ft_sort_complex(t_stack *a, t_stack *b)
+void    ft_sort_complex(t_data *d)
 {
 
 }
