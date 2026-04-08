@@ -66,7 +66,6 @@ int		ft_get_max_bits(t_stack *a);
 int		ft_get_chunk_size(int size);
 int		ft_count_arguments(char	**args);
 int		ft_allocate_stacks(t_stack *a, t_stack *b);
-void	ft_parse_and_validate(t_stack *a, t_stack *b, char **args, int is_split, int argc);
 void	ft_sort_complex(t_stack *a, t_stack *b);
 void	ft_radix_pass(t_stack *a, t_stack *b, int bit);
 void	ft_sort_simple(t_data *d);

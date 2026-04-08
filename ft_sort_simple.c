@@ -84,7 +84,7 @@ static void	ft_sort_three(t_data *d)
 
 void	ft_sort_simple(t_data *d)
 {
-	if (!d || !(d->a) || !(d->b) || !((d->a)->array) 
+	if (!d || !(d->a) || !(d->b) || !((d->a)->array)
 		|| !((d->b)->array) || ft_is_sorted(d->a) == 1)
 		return ;
 	if ((d->a)->size <= 1)
@@ -104,5 +104,3 @@ void	ft_sort_simple(t_data *d)
 	while ((d->b)->size > 0)
 		ft_pa(d);
 }
-
-
