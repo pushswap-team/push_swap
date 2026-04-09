@@ -6,7 +6,7 @@
 #    By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/23 14:10:16 by bayram-seve       #+#    #+#              #
-#    Updated: 2026/04/08 15:36:19 by bdayakli         ###   ########.fr        #
+#    Updated: 2026/04/09 16:39:26 by bdayakli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,12 @@ RM          = rm -f
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
-SRCS        = ft_parse.c \
+SRCS        = ft_strategy.c \
+			ft_disorter.c \
+			ft_flags.c \
+			ft_parse.c \
 			  ft_parse_halpers.c \
-			  ft_main.c \
+			  main.c \
 			  ft_index.c \
 			  ft_sort_simple.c \
 			  ft_sort_medium.c \

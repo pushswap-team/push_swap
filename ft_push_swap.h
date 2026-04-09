@@ -73,8 +73,6 @@ int			ft_count_arguments(char	**args);
 int			ft_allocate_stacks(t_stack *a, t_stack *b);
 int			ft_select_adaptive_strategy(double disorder);
 int			ft_resolve_strategy(double disorder, int forced_strategy);
-int			ft_is_strategy_flag(const char *arg);
-int			ft_is_bench_flag(const char *arg);
 int			ft_flag_to_strategy(const char *arg);
 int			ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f);
 int			ft_first_number_index(int argc, char **argv);
