@@ -33,7 +33,11 @@ void	ft_pa(t_data *d)
 	if (ft_push(&(d->b), &(d->a)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("pa");
+		(d->ops).pa++;
+		(d->ops).total++;
+	}
 }
 
 void	ft_pb(t_data *d)
@@ -43,5 +47,9 @@ void	ft_pb(t_data *d)
 	if (ft_push(&(d->a), &(d->b)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("pb");
+		(d->ops).pb++;
+		(d->ops).total++;
+	}
 }

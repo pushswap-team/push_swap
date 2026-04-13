@@ -41,7 +41,11 @@ void	ft_rra(t_data *d)
 	if (ft_reverse_rotate(&(d->a)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("rra");
+		(d->ops).rra++;
+		(d->ops).total++;
+	}
 }
 
 void	ft_rrb(t_data *d)
@@ -51,7 +55,11 @@ void	ft_rrb(t_data *d)
 	if (ft_reverse_rotate(&(d->b)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("rrb");
+		(d->ops).rrb++;
+		(d->ops).total++;
+	}
 }
 
 void	ft_rrr(t_data *d)
@@ -64,7 +72,11 @@ void	ft_rrr(t_data *d)
 	resulta = ft_reverse_rotate(&(d->a));
 	resultb = ft_reverse_rotate(&(d->b));
 	if (resulta || resultb)
+	{
 		ft_print_op("rrr");
+		(d->ops).rrr++;
+		(d->ops).total++;
+	}
 	else
 		return ;
 }

@@ -34,7 +34,11 @@ void	ft_sa(t_data *d)
 	if (ft_swap(&(d->a)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("sa");
+		(d->ops).sa++;
+		(d->ops).total++;
+	}
 }
 
 void	ft_sb(t_data *d)
@@ -44,7 +48,11 @@ void	ft_sb(t_data *d)
 	if (ft_swap(&(d->b)) == 0)
 		return ;
 	else
+	{
 		ft_print_op("sb");
+		(d->ops).sb++;
+		(d->ops).total++;
+	}
 }
 
 void	ft_ss(t_data *d)
@@ -57,7 +65,11 @@ void	ft_ss(t_data *d)
 	resulta = ft_swap(&(d->a));
 	resultb = ft_swap(&(d->b));
 	if (resulta || resultb)
+	{
 		ft_print_op("ss");
+		(d->ops).ss++;
+		(d->ops).total++;
+	}
 	else
 		return ;
 }

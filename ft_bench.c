@@ -6,7 +6,7 @@
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/08 17:28:16 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/13 17:23:55 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,88 @@
 
 void	ft_print_disorder(double disorder)
 {
-//Disorder değerini stderr’e basar.
+	int	whole;
+	int	frac;
+
+	if (disorder < 0 || disorder > 1)
+	{
+		write(2, "[bench] disorder invalid\n", 25);
+		return ;
+	}
+	whole = (int)disorder;
+	frac = (int)((disorder - whole) * 1000 + 0.5);
+	if (frac == 1000)
+	{
+		whole++;
+		frac = 0;
+	}
+	write(2, "[bench] Disorder: ", 18);
+	ft_putnbr_fd(whole, 2);
+	ft_putchar_fd('.', 2);
+	if (frac < 10)
+		write(2, "00", 2);
+	if (frac < 100)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(frac, 2);
+	ft_putchar_fd('\n', 2);
 }
 
 void	ft_print_strategy_info(int strategy)
 {
-//Strategy adı + complexity bilgisini stderr’e basar.
+	const char	*name;
+	const char	*complexity;
+	int			size_name;
+	int			size_complexity;
+
+	name = ft_strategy_name(strategy);
+	complexity = ft_strategy_complexity(strategy);
+	size_name = ft_strlen(name);
+	size_complexity = ft_strlen(complexity);
+	write(2, "[bench] Strategy: ", 18);
+	write(2, name, size_name);
+	write(2, " (", 2);
+	write(2, complexity, size_complexity);
+	write(2, ")\n", 2);
 }
 
-void	ft_print_total_ops(const t_opcount *ops)
+static void	ft_print_op_line(const char *label, int value)
 {
-//Toplam operasyon sayısını basar.
+	int	label_size;
+
+	label_size = ft_strlen(label);
+	write(2, "[bench] ", 8);
+	write(2, label, label_size);
+	write(2, ": ", 2);
+	ft_putnbr_fd(value, 2);
+	write(2, "\n", 1);
 }
 
 void	ft_print_op_breakdown(const t_opcount *ops)
 {
- // sa/sb/ss/pa/pb/ra/rb/rr/rra/rrb/rrr dağılımını basar.
+	if (!ops)
+		return ;
+	ft_print_op_line(("sa"), (ops->sa));
+	ft_print_op_line(("sb"), (ops->sb));
+	ft_print_op_line(("ss"), (ops->ss));
+	ft_print_op_line(("pa"), (ops->pa));
+	ft_print_op_line(("pb"), (ops->pb));
+	ft_print_op_line(("ra"), (ops->ra));
+	ft_print_op_line(("rb"), (ops->rb));
+	ft_print_op_line(("rr"), (ops->rr));
+	ft_print_op_line(("rra"), (ops->rra));
+	ft_print_op_line(("rrb"), (ops->rrb));
+	ft_print_op_line(("rrr"), (ops->rrr));
 }
+
 void	ft_print_bench(const t_data *d, int strategy)
 {
-// Tüm bench raporunu tek noktadan üretir.
+	if (!d)
+		return ;
+	ft_print_disorder(d->disorder);
+	ft_print_strategy_info(strategy);
+	write(2, "[bench] Total ops: ", 19);
+	ft_putnbr_fd((d->ops).total, 2);
+	write(2, "\n", 1);
+	write(2, "[bench] ", 8);
+	ft_print_op_breakdown(&(d->ops));
 }

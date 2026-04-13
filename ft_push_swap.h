@@ -51,7 +51,7 @@ typedef struct s_data
 	t_stack		*b;// Yardımcı stack
 	t_opcount	ops;// Operasyon sayaçları
 	double		disorder;// Disorder metriği (0-1)
-	int			bench_flag;// --bench aktif mi? (1/0)
+	int			bench_f;// --bench aktif mi? (1/0)
 	char		*strategy;// Seçilen strateji ("simple", "adaptive" vb.)
 	// Diğer: Argüman sayısı, vb.
 }	t_data;
@@ -76,10 +76,11 @@ int			ft_resolve_strategy(double disorder, int forced_strategy);
 int			ft_flag_to_strategy(const char *arg);
 int			ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f);
 int			ft_first_number_index(int argc, char **argv);
+void		ft_assign_index(t_stack *a);
+void		ft_sort_medium(t_data *d);
 void		ft_run_strategy(t_data *d, int strategy);
 void		ft_print_bench(const t_data *d, int strategy);
 void		ft_print_op_breakdown(const t_opcount *ops);
-void		ft_print_total_ops(const t_opcount *ops);
 void		ft_print_strategy_info(int strategy);
 void		ft_print_disorder(double disorder);
 void		ft_sort_complex(t_data *d);

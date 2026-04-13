@@ -6,7 +6,7 @@
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 17:32:36 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/09 18:34:10 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/13 17:22:19 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,18 @@ static int	ft_helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
 	{
 		if (*forced_s != PS_ADAPTIVE)
 			return (-1);
-		*forced_s = ft_flag_to_strategy(arg); 
+		*forced_s = ft_flag_to_strategy(arg);
 	}
 	else
 		return (-1);
 	return (0);
 }
+
 int	ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f)
 {
 	int	i;
 	int	j;
-	
+
 	if (!argv || !forced_s || !bench_f || argc < 1)
 		return (-1);
 	*bench_f = 0;
@@ -82,6 +83,7 @@ int	ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f)
 	}
 	return (0);
 }
+
 int	ft_first_number_index(int argc, char **argv)
 {
 	int	i;

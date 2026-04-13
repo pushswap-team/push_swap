@@ -6,7 +6,7 @@
 #    By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/23 14:10:16 by bayram-seve       #+#    #+#              #
-#    Updated: 2026/04/09 16:39:26 by bdayakli         ###   ########.fr        #
+#    Updated: 2026/04/13 16:01:04 by bdayakli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
 SRCS        = ft_strategy.c \
-			ft_disorter.c \
+			ft_adaptive.c \
+			ft_bench.c \
 			ft_flags.c \
 			ft_parse.c \
 			  ft_parse_halpers.c \
@@ -45,7 +46,7 @@ $(LIBFT):
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-%.o: %.c push_swap.h	
+%.o: %.c ft_push_swap.h	
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
