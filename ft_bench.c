@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/13 17:23:55 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:35:32 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ void	ft_print_bench(const t_data *d, int strategy)
 	write(2, "[bench] Total ops: ", 19);
 	ft_putnbr_fd((d->ops).total, 2);
 	write(2, "\n", 1);
-	write(2, "[bench] ", 8);
 	ft_print_op_breakdown(&(d->ops));
 }

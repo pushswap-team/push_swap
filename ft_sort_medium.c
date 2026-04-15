@@ -16,9 +16,9 @@
 int	ft_get_chunk_size(int size)
 {
 	if (size <= 100)
-		return (15);
+		return (10);
 	if (size <= 500)
-		return (30);
+		return (23);
 	return (size / 10);
 }
 
@@ -66,11 +66,15 @@ int	ft_find_max_pos(t_stack *b)
 	return (max_pos);
 }
 
+
+
+
 void	ft_sort_medium(t_data *d)
 {
 	int chunk_size;
 	int max_pos;
 
+	ft_assign_index(d->a);
 	chunk_size = ft_get_chunk_size(d->a->size);
 	ft_push_chunks(d, chunk_size);
 	while ((d->b)->size > 0)
