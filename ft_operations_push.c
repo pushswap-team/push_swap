@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-int	ft_push(t_stack **from, t_stack **to)
+static int	ft_push(t_stack **from, t_stack **to)
 {
 	if (!from || !to || !(*from) || !(*to))
 		return (0);

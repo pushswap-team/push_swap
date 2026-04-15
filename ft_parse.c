@@ -6,7 +6,7 @@
 /*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 17:22:03 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:02:26 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long	ft_atol(const char *str, t_stack *a, t_stack *b)
 	return (res);
 }
 
-void	ft_check_duplicates(t_stack *a, t_stack *b)
+static void	ft_check_duplicates(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ void	ft_check_duplicates(t_stack *a, t_stack *b)
 	}
 }
 
-void	ft_free_split(char **str)
+static void	ft_free_split(char **str)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 14:35:32 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:27:49 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_print_disorder(double disorder)
+static void	ft_print_disorder(double disorder) 
 {
 	int	whole;
 	int	frac;
@@ -40,7 +40,7 @@ void	ft_print_disorder(double disorder)
 	ft_putchar_fd('\n', 2);
 }
 
-void	ft_print_strategy_info(int strategy)
+static void	ft_print_strategy_info(int strategy)
 {
 	const char	*name;
 	const char	*complexity;

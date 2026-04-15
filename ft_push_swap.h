@@ -118,3 +118,6 @@ const char	*ft_strategy_complexity(int strategy);
 int	ft_atol_helper(const char *str, int res, t_stack *a, t_stack *b);
 
 #endif
+
+
+// kullNILn fonskiyonlar olsun sadece , 

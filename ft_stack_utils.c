@@ -24,7 +24,7 @@ int	ft_is_full(t_stack *stack)
 		return (0);
 }
 
-int	ft_is_empty(t_stack *stack)
+static int	ft_is_empty(t_stack *stack)
 {
 	if (!stack || stack->size == 0)
 		return (1);
@@ -32,7 +32,7 @@ int	ft_is_empty(t_stack *stack)
 		return (0);
 }
 
-void	ft_free_stack(t_stack **stack)
+static void	ft_free_stack(t_stack **stack)
 {
 	if (!stack || !*stack)
 		return ;
@@ -47,7 +47,7 @@ void	ft_free_stack(t_stack **stack)
 	*stack = 0;
 }
 
-int	ft_init_stack(t_stack *stack, int capacity)
+static int	ft_init_stack(t_stack *stack, int capacity)
 {
 	if (!stack || capacity <= 0)
 		return (0);

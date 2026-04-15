@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-int	ft_swap(t_stack **stack)
+static int	ft_swap(t_stack **stack)
 {
 	int	tmp;
 
@@ -41,7 +41,7 @@ void	ft_sa(t_data *d)
 	}
 }
 
-void	ft_sb(t_data *d)
+static void	ft_sb(t_data *d)
 {
 	if (!(d))
 		return ;
@@ -55,7 +55,7 @@ void	ft_sb(t_data *d)
 	}
 }
 
-void	ft_ss(t_data *d)
+static void	ft_ss(t_data *d)
 {
 	int	resulta;
 	int	resultb;

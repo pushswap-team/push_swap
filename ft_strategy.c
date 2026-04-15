@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strategy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:12 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/13 17:25:17 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:10:17 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_select_adaptive_strategy(double disorder)
+static int	ft_select_adaptive_strategy(double disorder)
 {
 	if (disorder >= 0.00 && disorder < 0.25)
 		return (PS_SIMPLE);

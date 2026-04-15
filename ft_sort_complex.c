@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-int     ft_get_max_bits(t_stack *a)
+static int     ft_get_max_bits(t_stack *a)
 {
 	int	max;
 	int	bits;
@@ -37,7 +37,7 @@ int     ft_get_max_bits(t_stack *a)
 	return (bits);
 }
 
-void    ft_radix_pass(t_data *d, int bit)
+static void    ft_radix_pass(t_data *d, int bit)
 {
 	int	temp;
 	int	i;	

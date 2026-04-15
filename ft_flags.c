@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 17:32:36 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/13 17:22:19 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 19:51:54 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_flag_to_strategy(const char *arg)
+static int	ft_flag_to_strategy(const char *arg)
 {
 	if (!arg)
 		return (-1);

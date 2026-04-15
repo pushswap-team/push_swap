@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-int	ft_rotate(t_stack **stack)
+ static int	ft_rotate(t_stack **stack)
 {
 	int	tmp;
 	int	i;
