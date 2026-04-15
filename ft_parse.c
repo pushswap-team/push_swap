@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/23 13:35:05 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/09 17:05:30 by bdayakli         ###   ########.fr       */
+/*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
+/*   Updated: 2026/04/15 12:50:17 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
