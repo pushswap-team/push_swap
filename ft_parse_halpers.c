@@ -6,7 +6,7 @@
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 12:06:19 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/08 12:51:37 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:04:22 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_count_arguments(char	**args)
 {
 	int	len;
 
-	if (!*args)
+	if (!*args || !(args))
 		return (0);
 	len = 0;
 	while (args[len])

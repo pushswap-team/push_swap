@@ -63,5 +63,18 @@ void    ft_radix_pass(t_data *d, int bit)
 
 void    ft_sort_complex(t_data *d)
 {
+	int	max_bits;
+	int	bits;
 
+	if (!d || !(d->a) || !(d->b) || !(d->b)->array
+		|| !(d->a)->array || (d->a)->size <= 1 || ft_is_sorted(d->a) == 1)
+		return ;
+	ft_assign_index(d->a);
+	max_bits = ft_get_max_bits(d->a);
+	bits = 0;
+	while (bits < max_bits)
+	{
+		ft_radix_pass(d, bits);
+		bits++;
+	}
 }

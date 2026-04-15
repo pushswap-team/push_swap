@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 12:50:17 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:03:50 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b)
 	int	i;
 
 	argv = ft_get_args_source(argv, argc);
+	if (!argv)
+		return ;
 	a->size = ft_count_arguments(argv);
 	b->size = 0;
 	ft_allocate_stacks(a, b);

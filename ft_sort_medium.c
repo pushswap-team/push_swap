@@ -27,7 +27,7 @@ void	ft_push_chunks(t_data *d, int chunk)
 	int i;
 
 	i = 0;
-	while (!(d->a))
+	while ((d->a)->size > 0)
 	{
 		if (d->a->array[0] <= i)
 		{
@@ -73,7 +73,7 @@ void	ft_sort_medium(t_data *d)
 
 	chunk_size = ft_get_chunk_size(d->a->size);
 	ft_push_chunks(d, chunk_size);
-	while (!(d->b))
+	while ((d->b)->size > 0)
 	{
 		max_pos = ft_find_max_pos(d->b);
 		if (max_pos <= d->b->size / 2)
