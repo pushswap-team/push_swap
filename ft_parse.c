@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 13:03:50 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:36:04 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ long	ft_atol(const char *str, t_stack *a, t_stack *b)
 	int		sign;
 	int		i;
 
+	if (!str)
+		ft_error_exit(a, b);
 	i = 0;
 	res = 0;
 	sign = ft_sign_halper((char *)str);
 	if (str[0] == '-' || str[0] == '+')
-	{
 		i++;
-	}
 	if (!str[i])
 		ft_error_exit(a, b);
 	while (str[i])
@@ -95,6 +95,8 @@ void	ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b)
 	if (!argv)
 		return ;
 	a->size = ft_count_arguments(argv);
+	if (a->size == 0)
+		ft_error_exit(a, b);
 	b->size = 0;
 	ft_allocate_stacks(a, b);
 	i = 0;
