@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_operations_rotate.c                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2026/03/30 17:07:32 by bdayakli          #+#    #+#             */
 /*   Updated: 2026/03/30 17:07:32 by bdayakli         ###   ########.fr       */
 /*                                                                            */
@@ -12,7 +15,7 @@
 
 #include "ft_push_swap.h"
 
- static int	ft_rotate(t_stack **stack)
+static int	ft_rotate(t_stack **stack)
 {
 	int	tmp;
 	int	i;

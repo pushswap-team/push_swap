@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:19:14 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 20:25:59 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 21:05:03 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_free_split(char **str)
 	}
 	free(str);
 }
+
 int	ft_allocate_stacks(t_stack *a, t_stack *b)
 {
 	if (!a || !b)

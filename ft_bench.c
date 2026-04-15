@@ -6,13 +6,13 @@
 /*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 20:27:49 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:57:24 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static void	ft_print_disorder(double disorder) 
+static void	ft_print_disorder(double disorder)
 {
 	int	whole;
 	int	frac;

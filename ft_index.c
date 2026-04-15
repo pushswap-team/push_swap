@@ -2,11 +2,14 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_index.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 19:53:39 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 19:53:39 by bayseven         ###   ########.fr       */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
+/*   Created: 2026/04/15 20:59:10 by bayseven          #+#    #+#             */
+/*   Updated: 2026/04/15 20:59:10 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +17,8 @@
 
 static int	ft_get_min_value(t_stack *a)
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	if (!a || !(a->array) || a->size <= 0)
 		return (0);
@@ -34,9 +37,9 @@ static int	ft_get_min_value(t_stack *a)
 
 static int	ft_get_next_min(t_stack *a, int prev_min)
 {
-	int i;
-	int next_min;
-	int trigger;
+	int	i;
+	int	next_min;
+	int	trigger;
 
 	if (!a || !(a->array) || a->size <= 0)
 		return (0);
@@ -61,7 +64,7 @@ static int	ft_get_next_min(t_stack *a, int prev_min)
 
 static void	ft_init_index(int *idx, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -73,9 +76,9 @@ static void	ft_init_index(int *idx, int size)
 
 static int	ft_get_min_pos(t_stack *a, int *idx)
 {
-	int i;
-	int min;
-	int pos;
+	int	i;
+	int	min;
+	int	pos;
 
 	i = 0;
 	pos = 0;
@@ -94,8 +97,8 @@ static int	ft_get_min_pos(t_stack *a, int *idx)
 
 void	ft_assign_index(t_stack *a)
 {
-	int *idx;
-	int i;
+	int	*idx;
+	int	i;
 
 	if (!a || a->size <= 1 || !(a->array))
 		return ;

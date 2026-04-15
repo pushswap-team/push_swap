@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_atol.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 20:26:47 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 21:08:08 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static long	ft_atol_helper(const char *str, long res, t_stack *a, t_stack *b)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			ft_error_exit(a, b);
-		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10 
-			&& (str[i]- '0') > LLONG_MAX % 10))
+		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10
+				&& (str[i] - '0') > LLONG_MAX % 10))
 			ft_error_exit(a, b);
 		res = (res * 10) + (str[i] - '0');
 		i++;
@@ -30,7 +30,7 @@ static long	ft_atol_helper(const char *str, long res, t_stack *a, t_stack *b)
 	return (res);
 }
 
-static int	ft_sign_halper(char *str)
+static	int	ft_sign_halper(char *str)
 {
 	int	sign;
 
@@ -64,5 +64,3 @@ long	ft_atol(const char *str, t_stack *a, t_stack *b)
 		ft_error_exit(a, b);
 	return (res);
 }
-
-
