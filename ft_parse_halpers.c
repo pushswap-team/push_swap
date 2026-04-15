@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/07 12:06:19 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 17:21:48 by bayseven         ###   ########.fr       */
+/*   Created: 2026/04/15 20:19:14 by bdayakli          #+#    #+#             */
+/*   Updated: 2026/04/15 20:25:59 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-char	**ft_get_args_source(char **argv, int argc)
-{
-	char	**res;
-
-	if (argv == NULL || argc < 2)
-		return (NULL);
-	if (argc == 2)
-	{
-		res = ft_split(argv[1], ' ');
-		return (res);
-	}
-	else if (argc > 2)
-	{
-		res = argv + 1;
-		return (res);
-	}
-	return (NULL);
-}
 
 int	ft_count_arguments(char **args)
 {
@@ -45,6 +26,20 @@ int	ft_count_arguments(char **args)
 	return (len);
 }
 
+void	ft_free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 int	ft_allocate_stacks(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
@@ -71,22 +66,4 @@ void	ft_error_exit(t_stack *a, t_stack *b)
 	}
 	write(2, "Error\n", 6);
 	exit(1);
-}
-
-int	ft_atol_helper(const char *str, int res, t_stack *a, t_stack *b)
-{
-	int i;
-	long res;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			ft_error_exit(a, b);
-		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10 
-			&& (str[i]- '0') > LLONG_MAX % 10))
-			ft_error_exit(a, b);
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (res);
 }

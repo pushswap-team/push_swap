@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_parse_atol.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 20:02:26 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:26:47 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
+static long	ft_atol_helper(const char *str, long res, t_stack *a, t_stack *b)
+{
+	int i;
+	
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			ft_error_exit(a, b);
+		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10 
+			&& (str[i]- '0') > LLONG_MAX % 10))
+			ft_error_exit(a, b);
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (res);
+}
 
 static int	ft_sign_halper(char *str)
 {
@@ -47,59 +65,4 @@ long	ft_atol(const char *str, t_stack *a, t_stack *b)
 	return (res);
 }
 
-static void	ft_check_duplicates(t_stack *a, t_stack *b)
-{
-	int	i;
-	int	j;
 
-	i = 0;
-	while (i < a->size)
-	{
-		j = i + 1;
-		while (j < a->size)
-		{
-			if (a->array[i] == a->array[j])
-				ft_error_exit(a, b);
-			j++;
-		}
-		i++;
-	}
-}
-
-static void	ft_free_split(char **str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
-void	ft_parse_args(int argc, char **argv, t_stack *a, t_stack *b)
-{
-	int	i;
-
-	argv = ft_get_args_source(argv, argc);
-	if (!argv)
-		return ;
-	a->size = ft_count_arguments(argv);
-	if (a->size == 0)
-		ft_error_exit(a, b);
-	b->size = 0;
-	ft_allocate_stacks(a, b);
-	i = 0;
-	while (i < a->size)
-	{
-		a->array[i] = ft_atol(argv[i], a, b);
-		i++;
-	}
-	if (argc == 2)
-		ft_free_split(argv);
-	ft_check_duplicates(a, b);
-}
