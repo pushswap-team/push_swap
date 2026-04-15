@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 12:06:19 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 13:04:22 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:21:48 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**ft_get_args_source(char **argv, int argc)
 	return (NULL);
 }
 
-int	ft_count_arguments(char	**args)
+int	ft_count_arguments(char **args)
 {
 	int	len;
 
@@ -71,4 +71,22 @@ void	ft_error_exit(t_stack *a, t_stack *b)
 	}
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+int	ft_atol_helper(const char *str, int res, t_stack *a, t_stack *b)
+{
+	int i;
+	long res;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			ft_error_exit(a, b);
+		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10 
+			&& (str[i]- '0') > LLONG_MAX % 10))
+			ft_error_exit(a, b);
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (res);
 }

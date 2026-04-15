@@ -6,7 +6,7 @@
 /*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 15:36:04 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:22:03 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,7 @@ long	ft_atol(const char *str, t_stack *a, t_stack *b)
 		i++;
 	if (!str[i])
 		ft_error_exit(a, b);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			ft_error_exit(a, b);
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
+	res = ft_atol_helper(&str[i], res, a, b);
 	res *= sign;
 	if (res > 2147483647 || res < -2147483648)
 		ft_error_exit(a, b);
