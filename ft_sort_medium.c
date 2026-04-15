@@ -19,7 +19,6 @@ int	ft_get_chunk_size(int size)
 		return (10);
 	if (size <= 500)
 		return (23);
-	return (size / 10);
 }
 
 void	ft_push_chunks(t_data *d, int chunk)
