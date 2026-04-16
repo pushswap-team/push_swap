@@ -24,40 +24,6 @@ int	ft_is_full(t_stack *stack)
 		return (0);
 }
 
-static int	ft_is_empty(t_stack *stack)
-{
-	if (!stack || stack->size == 0)
-		return (1);
-	else
-		return (0);
-}
-
-static void	ft_free_stack(t_stack **stack)
-{
-	if (!stack || !*stack)
-		return ;
-	if ((*stack)->array)
-	{
-		free ((*stack)->array);
-		(*stack)->array = 0;
-	}
-	(*stack)->size = 0;
-	(*stack)->capacity = 0;
-	free (*stack);
-	*stack = 0;
-}
-
-static int	ft_init_stack(t_stack *stack, int capacity)
-{
-	if (!stack || capacity <= 0)
-		return (0);
-	stack->array = malloc(sizeof(int) * capacity);
-	if (!(stack->array))
-		return (0);
-	stack->size = 0;
-	stack->capacity = capacity;
-	return (1);
-}
 
 int	ft_is_sorted(t_stack *stack)
 {
@@ -72,5 +38,39 @@ int	ft_is_sorted(t_stack *stack)
 			return (0);
 		i++;
 	}
+	return (1);
+}
+int	ft_is_empty(t_stack *stack)
+{
+	if (!stack || stack->size == 0)
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	if (!stack || !*stack)
+		return ;
+	if ((*stack)->array)
+	{
+		free ((*stack)->array);
+		(*stack)->array = 0;
+	}
+	(*stack)->size = 0;
+	(*stack)->capacity = 0;
+	free (*stack);
+	*stack = 0;
+}
+
+int	ft_init_stack(t_stack *stack, int capacity)
+{
+	if (!stack || capacity <= 0)
+		return (0);
+	stack->array = malloc(sizeof(int) * capacity);
+	if (!(stack->array))
+		return (0);
+	stack->size = 0;
+	stack->capacity = capacity;
 	return (1);
 }

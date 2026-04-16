@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-static int	ft_find_min_pos(t_stack *a)
+int	ft_find_min_pos(t_stack *a)
 {
 	int	min_value;
 	int	min_pos;
@@ -35,7 +35,7 @@ static int	ft_find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-static void	ft_push_min_to_b(t_data *d)
+void	ft_push_min_to_b(t_data *d)
 {
 	int	min_pos;
 
@@ -53,7 +53,7 @@ static void	ft_push_min_to_b(t_data *d)
 	ft_pb(d);
 }
 
-static void	ft_sort_three(t_data *d)
+void	ft_sort_three(t_data *d)
 {
 	int	x;
 	int	y;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 17:32:36 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 19:51:54 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 22:21:45 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_flag_to_strategy(const char *arg)
+int	ft_flag_to_strategy(const char *arg)
 {
 	if (!arg)
 		return (-1);
@@ -27,7 +27,7 @@ static int	ft_flag_to_strategy(const char *arg)
 	return (-1);
 }
 
-static int	ft_is_flag(const char *arg)
+int	ft_is_flag(const char *arg)
 {
 	if (!arg)
 		return (0);
@@ -38,7 +38,7 @@ static int	ft_is_flag(const char *arg)
 	return (0);
 }
 
-static int	ft_helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
+int	ft_helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
 {
 	if (ft_strncmp(("--bench"), (arg), sizeof("--bench")) == 0)
 	{

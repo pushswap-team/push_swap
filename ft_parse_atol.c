@@ -3,64 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_atol.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 21:08:08 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/17 01:12:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_push_swap.h"
 
-static long	ft_atol_helper(const char *str, long res, t_stack *a, t_stack *b)
+static int ft_is_digit_str(const char *str)
 {
-	int	i;
+	int i;
 
+	i = 0;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int ft_get_sign(const char *str)
+{
+	if (str[0] == '-')
+		return (-1);
+	return (1);
+}
+
+static long ft_atol_core(const char *str, t_stack *a, t_stack *b)
+{
+	long res;
+	int i;
+
+	res = 0;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			ft_error_exit(a, b);
-		if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10
-				&& (str[i] - '0') > LLONG_MAX % 10))
-			ft_error_exit(a, b);
-		res = (res * 10) + (str[i] - '0');
+		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	return (res);
 }
 
-static	int	ft_sign_halper(char *str)
+long ft_atol(const char *str, t_stack *a, t_stack *b)
 {
-	int	sign;
-
-	sign = 1;
-	if (str[0] == '-' || str[0] == '+')
-	{
-		if (str[0] == '-')
-			sign = -1;
-	}
-	return (sign);
-}
-
-long	ft_atol(const char *str, t_stack *a, t_stack *b)
-{
-	long	res;
-	int		sign;
-	int		i;
+	long res;
+	int sign;
+	int i;
 
 	if (!str)
 		ft_error_exit(a, b);
+	sign = ft_get_sign(str);
 	i = 0;
-	res = 0;
-	sign = ft_sign_halper((char *)str);
 	if (str[0] == '-' || str[0] == '+')
 		i++;
-	if (!str[i])
+	if (ft_strlen(&str[i]) >= 19)
 		ft_error_exit(a, b);
-	res = ft_atol_helper(&str[i], res, a, b);
-	res *= sign;
-	if (res > 2147483647 || res < -2147483648)
+	if (!ft_is_digit_str(&str[i]))
 		ft_error_exit(a, b);
-	return (res);
+	res = ft_atol_core(&str[i], a, b);
+	if ((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
+		ft_error_exit(a, b);
+	return (res * sign);
 }
+

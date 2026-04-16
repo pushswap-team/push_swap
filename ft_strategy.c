@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strategy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:12 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 20:10:17 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/17 01:08:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_select_adaptive_strategy(double disorder)
+int	ft_select_adaptive_strategy(double disorder)
 {
-	if (disorder >= 0.00 && disorder < 0.25)
+	if (disorder >= 0.0 && disorder < 0.2)
 		return (PS_SIMPLE);
-	else if (disorder >= 0.25 && disorder < 0.70)
+	else if (disorder >= 0.2 && disorder < 0.5)
 		return (PS_MEDIUM);
-	else if (disorder >= 0.70 && disorder <= 1.00)
+	else if (disorder >= 0.5 && disorder <= 1.0)
 		return (PS_COMPLEX);
 	return (PS_COMPLEX);
 }
@@ -64,10 +64,8 @@ const char	*ft_strategy_complexity(int strategy)
 	if (strategy == PS_SIMPLE)
 		return ("O(n^2)");
 	if (strategy == PS_MEDIUM)
-		return ("chunk-based");
+		return ("O(n√n)");
 	if (strategy == PS_COMPLEX)
-		return ("radix-based");
-	if (strategy == PS_ADAPTIVE)
-		return ("hybrid");
+		return ("O(n log n)");
 	return ("unknown");
 }

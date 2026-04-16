@@ -12,15 +12,16 @@
 
 #include "ft_push_swap.h"
 
-static int	ft_get_chunk_size(int size)
+int	ft_get_chunk_size(int size)
 {
 	if (size <= 100)
 		return (10);
 	if (size <= 500)
 		return (23);
+	return (size / 10);
 }
 
-static	void	ft_push_chunks(t_data *d, int chunk)
+void	ft_push_chunks(t_data *d, int chunk)
 {
 	int	i;
 
@@ -43,7 +44,7 @@ static	void	ft_push_chunks(t_data *d, int chunk)
 	}
 }
 
-static	int	ft_find_max_pos(t_stack *b)
+int	ft_find_max_pos(t_stack *b)
 {
 	int	max_val;
 	int	max_pos;
@@ -66,9 +67,14 @@ static	int	ft_find_max_pos(t_stack *b)
 
 void	ft_sort_medium(t_data *d)
 {
-	int	chunk_size;
-	int	max_pos;
+	int chunk_size;
+	int max_pos;
 
+	if (d->a->size <= 5)
+	{
+		ft_sort_five(d);
+		return;
+	}
 	ft_assign_index(d->a);
 	chunk_size = ft_get_chunk_size(d->a->size);
 	ft_push_chunks(d, chunk_size);

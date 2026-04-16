@@ -15,7 +15,7 @@
 
 #include "ft_push_swap.h"
 
-static int	ft_rotate(t_stack **stack)
+int	ft_rotate(t_stack **stack)
 {
 	int	tmp;
 	int	i;

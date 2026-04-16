@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 02:49:04 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/02/19 13:55:57 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/15 22:22:42 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(const char *s, char c)
+int	count_words(const char *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -33,7 +33,7 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static char	**free_array(char **array, int i)
+char	**free_array(char **array, int i)
 {
 	while (i > 0)
 	{
@@ -44,7 +44,7 @@ static char	**free_array(char **array, int i)
 	return (NULL);
 }
 
-static char	**fill_array(char const *s, char c, char **array)
+char	**fill_array(char const *s, char c, char **array)
 {
 	int	i;
 	int	word_len;

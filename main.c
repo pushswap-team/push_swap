@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 15:14:44 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/13 17:42:03 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/17 01:03:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_parse_runtime_flags(int argc, char **argv,
+int	ft_parse_runtime_flags(int argc, char **argv,
 	int *forced_s, int *bench_f)
 {
 	int	result;
@@ -25,7 +25,7 @@ static int	ft_parse_runtime_flags(int argc, char **argv,
 	return (-1);
 }
 
-static int	ft_init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
+int	ft_init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
 {
 	int		first_number;
 	int		parsed_argc;
@@ -50,7 +50,7 @@ static int	ft_init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
 	return (0);
 }
 
-static void	ft_prepare_data(t_data *d, t_stack *a, t_stack *b, int bench_f)
+void	ft_prepare_data(t_data *d, t_stack *a, t_stack *b, int bench_f)
 {
 	if (!d || !a || !b)
 		return ;
@@ -62,7 +62,7 @@ static void	ft_prepare_data(t_data *d, t_stack *a, t_stack *b, int bench_f)
 	d->ops = (t_opcount){0};
 }
 
-static void	ft_cleanup(t_stack *a, t_stack *b)
+void	ft_cleanup(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return ;
@@ -107,7 +107,7 @@ int	main(int argc, char **argv)
 	if (!ft_is_sorted(d.a))
 		ft_run_strategy(&d, strategy);
 	if (d.bench_f)
-		ft_print_bench(&d, strategy);
+		ft_print_bench(&d, forced_s, strategy);
 	ft_cleanup(&a, &b);
 	return (0);
 }

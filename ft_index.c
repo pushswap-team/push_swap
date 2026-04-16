@@ -2,69 +2,19 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_index.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2026/04/15 20:59:10 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 20:59:10 by bayseven         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/15 19:53:39 by bayseven          #+#    #+#             */
+/*   Updated: 2026/04/15 19:53:39 by bayseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_get_min_value(t_stack *a)
+void	ft_init_index(int *idx, int size)
 {
-	int	i;
-	int	min;
-
-	if (!a || !(a->array) || a->size <= 0)
-		return (0);
-	min = a->array[0];
-	i = 1;
-	while (i < a->size)
-	{
-		if (min > a->array[i])
-		{
-			min = a->array[i];
-		}
-		i++;
-	}
-	return (min);
-}
-
-static int	ft_get_next_min(t_stack *a, int prev_min)
-{
-	int	i;
-	int	next_min;
-	int	trigger;
-
-	if (!a || !(a->array) || a->size <= 0)
-		return (0);
-	i = 0;
-	trigger = 0;
-	while (i < a->size)
-	{
-		if (a->array[i] > prev_min && trigger == 0)
-		{
-			trigger = 1;
-			next_min = a->array[i];
-		}
-		if (a->array[i] > prev_min && trigger == 1)
-			if (a->array[i] < next_min)
-				next_min = a->array[i];
-		i++;
-	}
-	if (trigger == 1)
-		return (next_min);
-	return (prev_min);
-}
-
-static void	ft_init_index(int *idx, int size)
-{
-	int	i;
+	int i;
 
 	i = 0;
 	while (i < size)
@@ -74,11 +24,11 @@ static void	ft_init_index(int *idx, int size)
 	}
 }
 
-static int	ft_get_min_pos(t_stack *a, int *idx)
+int	ft_get_min_pos(t_stack *a, int *idx)
 {
-	int	i;
-	int	min;
-	int	pos;
+	int i;
+	int min;
+	int pos;
 
 	i = 0;
 	pos = 0;
@@ -97,8 +47,8 @@ static int	ft_get_min_pos(t_stack *a, int *idx)
 
 void	ft_assign_index(t_stack *a)
 {
-	int	*idx;
-	int	i;
+	int *idx;
+	int i;
 
 	if (!a || a->size <= 1 || !(a->array))
 		return ;

@@ -3,50 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:19:14 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/15 21:05:03 by bayseven         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:26:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_count_arguments(char **args)
-{
-	int	len;
 
-	if (!*args || !(args))
+int ft_count_arguments(char **args)
+{
+	int len;
+
+	if (!args)
 		return (0);
 	len = 0;
 	while (args[len])
-	{
 		len++;
-	}
 	return (len);
 }
 
-void	ft_free_split(char **str)
-{
-	int	i;
 
-	i = 0;
+void ft_free_split(char **str)
+{
+	int i;
+
 	if (!str)
-		return ;
+		return;
+	i = 0;
 	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
+		free(str[i++]);
 	free(str);
 }
 
-int	ft_allocate_stacks(t_stack *a, t_stack *b)
+
+int ft_allocate_stacks(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return (0);
-	a->array = NULL;
-	b->array = NULL;
+	if (a->array)
+		free(a->array);
+	if (b->array)
+		free(b->array);
 	a->array = malloc(sizeof(int) * a->size);
 	b->array = malloc(sizeof(int) * a->size);
 	if (!(a->array) || !(b->array))
@@ -54,16 +54,18 @@ int	ft_allocate_stacks(t_stack *a, t_stack *b)
 	return (1);
 }
 
-void	ft_error_exit(t_stack *a, t_stack *b)
+
+void ft_error_exit(t_stack *a, t_stack *b)
 {
-	if (!a || !b)
-		return ;
-	if (a->array || b->array)
+	if (a && a->array)
 	{
-		if (a->array)
-			free(a->array);
-		if (b->array)
-			free(b->array);
+		free(a->array);
+		a->array = NULL;
+	}
+	if (b && b->array)
+	{
+		free(b->array);
+		b->array = NULL;
 	}
 	write(2, "Error\n", 6);
 	exit(1);
