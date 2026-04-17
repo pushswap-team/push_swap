@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operations_push.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:07:08 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/03/30 17:07:08 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/17 16:01:43 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

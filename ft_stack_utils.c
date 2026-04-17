@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/30 17:08:15 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/03/30 17:08:15 by bdayakli         ###   ########.fr       */
+/*   Created: 2026/04/17 16:03:45 by bayram-seve       #+#    #+#             */
+/*   Updated: 2026/04/17 16:03:50 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_is_full(t_stack *stack)
 		return (0);
 }
 
-
 int	ft_is_sorted(t_stack *stack)
 {
 	int	i;
@@ -40,6 +39,7 @@ int	ft_is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
 int	ft_is_empty(t_stack *stack)
 {
 	if (!stack || stack->size == 0)
@@ -54,12 +54,12 @@ void	ft_free_stack(t_stack **stack)
 		return ;
 	if ((*stack)->array)
 	{
-		free ((*stack)->array);
+		free((*stack)->array);
 		(*stack)->array = 0;
 	}
 	(*stack)->size = 0;
 	(*stack)->capacity = 0;
-	free (*stack);
+	free(*stack);
 	*stack = 0;
 }
 

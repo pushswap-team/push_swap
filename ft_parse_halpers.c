@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:19:14 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/16 17:26:41 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/17 16:02:14 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-
-int ft_count_arguments(char **args)
+int	ft_count_arguments(char **args)
 {
-	int len;
+	int	len;
 
 	if (!args)
 		return (0);
@@ -25,21 +24,19 @@ int ft_count_arguments(char **args)
 	return (len);
 }
 
-
-void ft_free_split(char **str)
+void	ft_free_split(char **str)
 {
-	int i;
+	int	i;
 
 	if (!str)
-		return;
+		return ;
 	i = 0;
 	while (str[i])
 		free(str[i++]);
 	free(str);
 }
 
-
-int ft_allocate_stacks(t_stack *a, t_stack *b)
+int	ft_allocate_stacks(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return (0);
@@ -54,8 +51,7 @@ int ft_allocate_stacks(t_stack *a, t_stack *b)
 	return (1);
 }
 
-
-void ft_error_exit(t_stack *a, t_stack *b)
+void	ft_error_exit(t_stack *a, t_stack *b)
 {
 	if (a && a->array)
 	{

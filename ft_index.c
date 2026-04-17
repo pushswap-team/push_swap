@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_index.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 19:53:39 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 19:53:39 by bayseven         ###   ########.fr       */
+/*   Created: 2026/04/17 15:59:50 by bayram-seve       #+#    #+#             */
+/*   Updated: 2026/04/17 16:01:39 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_init_index(int *idx, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -26,9 +26,9 @@ void	ft_init_index(int *idx, int size)
 
 int	ft_get_min_pos(t_stack *a, int *idx)
 {
-	int i;
-	int min;
-	int pos;
+	int	i;
+	int	min;
+	int	pos;
 
 	i = 0;
 	pos = 0;
@@ -47,8 +47,8 @@ int	ft_get_min_pos(t_stack *a, int *idx)
 
 void	ft_assign_index(t_stack *a)
 {
-	int *idx;
-	int i;
+	int	*idx;
+	int	i;
 
 	if (!a || a->size <= 1 || !(a->array))
 		return ;

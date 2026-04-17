@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 15:14:44 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 01:03:37 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/17 16:04:21 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_parse_runtime_flags(int argc, char **argv,
-	int *forced_s, int *bench_f)
+int	ft_parse_runtime_flags(int argc, char **argv, int *forced_s, int *bench_f)
 {
 	int	result;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_small.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 21:23:38 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 01:14:50 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/17 16:03:43 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,55 @@
 
 int	ft_get_min_value(t_stack *a)
 {
-    int i;
-    int min;
+	int	i;
+	int	min;
 
 	i = 1;
 	min = a->array[0];
-    while (i < a->size)
-    {
-        if (a->array[i] < min)
-            min = a->array[i];
-        i++;
-    }
-    return (min);
+	while (i < a->size)
+	{
+		if (a->array[i] < min)
+			min = a->array[i];
+		i++;
+	}
+	return (min);
 }
 
 void	ft_bring_min_to_top(t_data *d, int min_pos)
 {
-    int i;
+	int	i;
 
-    if (min_pos <= d->a->size / 2)
-    {
-        i = min_pos;
-        while (i-- > 0)
-            ft_ra(d);
-    }
-    else
-    {
-        i = d->a->size - min_pos;
-        while (i-- > 0)
-            ft_rra(d);
-    }
+	if (min_pos <= d->a->size / 2)
+	{
+		i = min_pos;
+		while (i-- > 0)
+			ft_ra(d);
+	}
+	else
+	{
+		i = d->a->size - min_pos;
+		while (i-- > 0)
+			ft_rra(d);
+	}
 }
 
 int	ft_get_min_pos_value(t_stack *a, int value)
 {
-    int i;
+	int	i;
 
 	i = 0;
-    while (i < a->size)
-    {
-        if (a->array[i] == value)
-            return (i);
-        i++;
-    }
-    return (0);
+	while (i < a->size)
+	{
+		if (a->array[i] == value)
+			return (i);
+		i++;
+	}
+	return (0);
 }
 
 void	ft_sort_five(t_data *d)
 {
-	int min;
+	int	min;
 	int	min_pos;
 
 	while (d->a->size > 3)

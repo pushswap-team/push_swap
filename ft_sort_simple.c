@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_simple.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:00:22 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/05 17:00:22 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/17 16:03:38 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_sort_three(t_data *d)
 	int	y;
 	int	z;
 
-	if (!d || !(d->a) || (d->a)->size != 3 ||!(d->a)->array)
+	if (!d || !(d->a) || (d->a)->size != 3 || !(d->a)->array)
 		return ;
 	x = (d->a)->array[0];
 	y = (d->a)->array[1];
@@ -84,8 +84,8 @@ void	ft_sort_three(t_data *d)
 
 void	ft_sort_simple(t_data *d)
 {
-	if (!d || !(d->a) || !(d->b) || !((d->a)->array)
-		|| !((d->b)->array) || ft_is_sorted(d->a) == 1)
+	if (!d || !(d->a) || !(d->b) || !((d->a)->array) || !((d->b)->array)
+		|| ft_is_sorted(d->a) == 1)
 		return ;
 	if ((d->a)->size <= 1)
 		return ;

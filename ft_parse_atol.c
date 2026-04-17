@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_atol.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 12:50:14 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/17 01:12:35 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/17 16:02:07 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_push_swap.h"
 
-static int ft_is_digit_str(const char *str)
+static int	ft_is_digit_str(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str[i])
@@ -29,17 +28,17 @@ static int ft_is_digit_str(const char *str)
 	return (1);
 }
 
-static int ft_get_sign(const char *str)
+static int	ft_get_sign(const char *str)
 {
 	if (str[0] == '-')
 		return (-1);
 	return (1);
 }
 
-static long ft_atol_core(const char *str, t_stack *a, t_stack *b)
+static long	ft_atol_core(const char *str, t_stack *a, t_stack *b)
 {
-	long res;
-	int i;
+	long	res;
+	int		i;
 
 	res = 0;
 	i = 0;
@@ -53,11 +52,11 @@ static long ft_atol_core(const char *str, t_stack *a, t_stack *b)
 	return (res);
 }
 
-long ft_atol(const char *str, t_stack *a, t_stack *b)
+long	ft_atol(const char *str, t_stack *a, t_stack *b)
 {
-	long res;
-	int sign;
-	int i;
+	long	res;
+	int		sign;
+	int		i;
 
 	if (!str)
 		ft_error_exit(a, b);
@@ -74,4 +73,3 @@ long ft_atol(const char *str, t_stack *a, t_stack *b)
 		ft_error_exit(a, b);
 	return (res * sign);
 }
-

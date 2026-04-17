@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_medium.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayseven <bayseven@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 12:49:45 by bayseven          #+#    #+#             */
-/*   Updated: 2026/04/15 12:49:45 by bayseven         ###   ########.fr       */
+/*   Created: 2026/04/17 16:03:29 by bayram-seve       #+#    #+#             */
+/*   Updated: 2026/04/17 16:03:32 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ int	ft_find_max_pos(t_stack *b)
 
 void	ft_sort_medium(t_data *d)
 {
-	int chunk_size;
-	int max_pos;
+	int	chunk_size;
+	int	max_pos;
 
 	if (d->a->size <= 5)
 	{
 		ft_sort_five(d);
-		return;
+		return ;
 	}
 	ft_assign_index(d->a);
 	chunk_size = ft_get_chunk_size(d->a->size);

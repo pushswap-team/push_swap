@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:08:24 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/03/30 17:08:24 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/17 16:03:54 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void	ft_shift_down(t_stack *stack)
 	int	i;
 	int	j;
 
-	if (!stack || !(stack -> array)
-		|| stack->capacity <= 0 || stack->size == 0)
+	if (!stack || !(stack->array) || stack->capacity <= 0 || stack->size == 0)
 		return ;
 	i = 0;
 	j = stack->size - 1;
@@ -60,16 +59,14 @@ void	ft_print_op(char *op)
 
 int	ft_can_swap(t_stack *stack)
 {
-	if (!stack || !(stack->array)
-		|| stack->size < 2)
+	if (!stack || !(stack->array) || stack->size < 2)
 		return (0);
 	return (1);
 }
 
 int	ft_can_push(t_stack *stack)
 {
-	if (!stack || !(stack->array)
-		|| stack->size == 0)
+	if (!stack || !(stack->array) || stack->size == 0)
 		return (0);
 	return (1);
 }

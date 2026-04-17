@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_complex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 23:48:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/06 23:48:28 by bdayakli         ###   ########.fr       */
+/*   Created: 2026/04/17 16:03:18 by bayram-seve       #+#    #+#             */
+/*   Updated: 2026/04/17 16:03:25 by bayram-seve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ int	ft_get_max_bits(t_stack *a)
 void	ft_radix_pass(t_data *d, int bit)
 {
 	int	temp;
-	int	i;	
+	int	i;
 
-	if (!d || !(d->a) || !(d->b)
-		|| !((d->a)->array) ||!((d->b)->array))
+	if (!d || !(d->a) || !(d->b) || !((d->a)->array) || !((d->b)->array))
 		return ;
 	temp = (d->a)->size;
 	i = 0;
@@ -63,16 +62,16 @@ void	ft_radix_pass(t_data *d, int bit)
 
 void	ft_sort_complex(t_data *d)
 {
-	int max_bits;
-	int bits;
+	int	max_bits;
+	int	bits;
 
-	if (!d || !(d->a) || !(d->b) || !(d->b)->array
-		|| !(d->a)->array || (d->a)->size <= 1 || ft_is_sorted(d->a) == 1)
+	if (!d || !(d->a) || !(d->b) || !(d->b)->array || !(d->a)->array
+		|| (d->a)->size <= 1 || ft_is_sorted(d->a) == 1)
 		return ;
 	if (d->a->size <= 5)
 	{
 		ft_sort_five(d);
-		return;
+		return ;
 	}
 	ft_assign_index(d->a);
 	max_bits = ft_get_max_bits(d->a);
