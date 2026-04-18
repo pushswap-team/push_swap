@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strategy.c                                      :+:      :+:    :+:   */
+/*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:12 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:57 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:57:29 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_select_adaptive_strategy(double disorder)
+static int	select_adaptive_strategy(double disorder)
 {
 	if (disorder >= 0.0 && disorder < 0.2)
 		return (PS_SIMPLE);
@@ -23,30 +23,30 @@ int	ft_select_adaptive_strategy(double disorder)
 	return (PS_COMPLEX);
 }
 
-int	ft_resolve_strategy(double disorder, int forced_strategy)
+int	resolve_strategy(double disorder, int forced_strategy)
 {
 	int	result;
 
 	if (forced_strategy != PS_ADAPTIVE)
 		return (forced_strategy);
 	else
-		result = ft_select_adaptive_strategy(disorder);
+		result = select_adaptive_strategy(disorder);
 	return (result);
 }
 
-void	ft_run_strategy(t_data *d, int strategy)
+void	run_strategy(t_data *d, int strategy)
 {
 	if (!d)
 		return ;
 	if (strategy == PS_SIMPLE)
-		ft_sort_simple(d);
+		sort_simple(d);
 	else if (strategy == PS_MEDIUM)
-		ft_sort_medium(d);
+		sort_medium(d);
 	else
-		ft_sort_complex(d);
+		sort_complex(d);
 }
 
-const char	*ft_strategy_name(int strategy)
+const char	*strategy_name(int strategy)
 {
 	if (strategy == PS_SIMPLE)
 		return ("simple");
@@ -59,7 +59,7 @@ const char	*ft_strategy_name(int strategy)
 	return ("unknown");
 }
 
-const char	*ft_strategy_complexity(int strategy)
+const char	*strategy_complexity(int strategy)
 {
 	if (strategy == PS_SIMPLE)
 		return ("O(n^2)");

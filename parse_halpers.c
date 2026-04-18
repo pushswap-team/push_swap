@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_halpers.c                                 :+:      :+:    :+:   */
+/*   parse_halpers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:19:14 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:02:14 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:30:16 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_count_arguments(char **args)
+int	count_arguments(char **args)
 {
 	int	len;
 
@@ -24,7 +24,7 @@ int	ft_count_arguments(char **args)
 	return (len);
 }
 
-void	ft_free_split(char **str)
+void	free_split(char **str)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void	ft_free_split(char **str)
 	free(str);
 }
 
-int	ft_allocate_stacks(t_stack *a, t_stack *b)
+int	allocate_stacks(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return (0);
@@ -47,11 +47,11 @@ int	ft_allocate_stacks(t_stack *a, t_stack *b)
 	a->array = malloc(sizeof(int) * a->size);
 	b->array = malloc(sizeof(int) * a->size);
 	if (!(a->array) || !(b->array))
-		ft_error_exit(a, b);
+		error_exit(a, b);
 	return (1);
 }
 
-void	ft_error_exit(t_stack *a, t_stack *b)
+void	error_exit(t_stack *a, t_stack *b)
 {
 	if (a && a->array)
 	{

@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 15:14:44 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:04:21 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:52:19 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_parse_runtime_flags(int argc, char **argv, int *forced_s, int *bench_f)
+static int	parse_runtime_flags(int argc, char **argv,
+	int *forced_s, int *bench_f)
 {
 	int	result;
 
 	if (!argc || !*argv || !bench_f || !forced_s)
 		return (-1);
-	result = ft_parse_flags(argc, argv, forced_s, bench_f);
+	result = parse_flags(argc, argv, forced_s, bench_f);
 	if (result == 0)
 		return (0);
 	return (-1);
 }
 
-int	ft_init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
+static int	init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
 {
 	int		first_number;
 	int		parsed_argc;
@@ -38,30 +39,30 @@ int	ft_init_and_parse(int argc, char **argv, t_stack *a, t_stack *b)
 	b->size = 0;
 	a->capacity = 0;
 	b->capacity = 0;
-	first_number = ft_first_number_index(argc, argv);
+	first_number = first_number_index(argc, argv);
 	if (first_number < 1 || first_number >= argc)
 		return (-1);
 	parsed_argc = argc - first_number + 1;
 	parsed_argv = argv + (first_number - 1);
-	ft_parse_args(parsed_argc, parsed_argv, a, b);
+	parse_args(parsed_argc, parsed_argv, a, b);
 	a->capacity = a->size;
 	b->capacity = a->size;
 	return (0);
 }
 
-void	ft_prepare_data(t_data *d, t_stack *a, t_stack *b, int bench_f)
+static void	prepare_data(t_data *d, t_stack *a, t_stack *b, int bench_f)
 {
 	if (!d || !a || !b)
 		return ;
 	d->a = a;
 	d->b = b;
 	d->bench_f = bench_f;
-	d->disorder = ft_compute_disorder(a);
+	d->disorder = compute_disorder(a);
 	d->strategy = NULL;
 	d->ops = (t_opcount){0};
 }
 
-void	ft_cleanup(t_stack *a, t_stack *b)
+static void	cleanup(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return ;
@@ -97,16 +98,16 @@ int	main(int argc, char **argv)
 	b = (t_stack){0};
 	if (argc < 2 || !argv)
 		return (0);
-	if (ft_parse_runtime_flags(argc, argv, &forced_s, &(d.bench_f)) == -1)
-		ft_error_exit(&a, &b);
-	if (ft_init_and_parse(argc, argv, &a, &b) == -1)
-		ft_error_exit(&a, &b);
-	ft_prepare_data(&d, &a, &b, (d.bench_f));
-	strategy = ft_resolve_strategy(d.disorder, forced_s);
-	if (!ft_is_sorted(d.a))
-		ft_run_strategy(&d, strategy);
+	if (parse_runtime_flags(argc, argv, &forced_s, &(d.bench_f)) == -1)
+		error_exit(&a, &b);
+	if (init_and_parse(argc, argv, &a, &b) == -1)
+		error_exit(&a, &b);
+	prepare_data(&d, &a, &b, (d.bench_f));
+	strategy = resolve_strategy(d.disorder, forced_s);
+	if (!is_sorted(d.a))
+		run_strategy(&d, strategy);
 	if (d.bench_f)
-		ft_print_bench(&d, forced_s, strategy);
-	ft_cleanup(&a, &b);
+		print_bench(&d, forced_s, strategy);
+	cleanup(&a, &b);
 	return (0);
 }

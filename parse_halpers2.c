@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_halpers2.c                                :+:      :+:    :+:   */
+/*   parse_halpers2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 17:34:39 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:02 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:30:50 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_check_empty_args(char **argv, int argc, t_stack *a, t_stack *b)
+static void	check_empty_args(char **argv, int argc, t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -24,18 +24,18 @@ void	ft_check_empty_args(char **argv, int argc, t_stack *a, t_stack *b)
 		while (argv[i][j] && argv[i][j] == ' ')
 			j++;
 		if (!argv[i][j])
-			ft_error_exit(a, b);
+			error_exit(a, b);
 		i++;
 	}
 }
 
-char	*ft_join_all_args(char **argv, int argc, t_stack *a, t_stack *b)
+char	*join_all_args(char **argv, int argc, t_stack *a, t_stack *b)
 {
 	char	*res;
 	char	*tmp;
 	int		i;
 
-	ft_check_empty_args(argv, argc, a, b);
+	check_empty_args(argv, argc, a, b);
 	res = ft_strdup("");
 	i = 1;
 	while (i < argc)
@@ -54,7 +54,7 @@ char	*ft_join_all_args(char **argv, int argc, t_stack *a, t_stack *b)
 	return (res);
 }
 
-void	ft_check_duplicates(t_stack *a, t_stack *b)
+void	check_duplicates(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ void	ft_check_duplicates(t_stack *a, t_stack *b)
 		while (j < a->size)
 		{
 			if (a->array[i] == a->array[j])
-				ft_error_exit(a, b);
+				error_exit(a, b);
 			j++;
 		}
 		i++;

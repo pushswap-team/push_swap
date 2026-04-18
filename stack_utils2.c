@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_utils2.c                                  :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:08:24 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:54 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:45:13 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_shift_up(t_stack *stack)
+void	shift_up(t_stack *stack)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	ft_shift_up(t_stack *stack)
 	stack->size++;
 }
 
-void	ft_shift_down(t_stack *stack)
+void	shift_down(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -46,7 +46,7 @@ void	ft_shift_down(t_stack *stack)
 	stack->array[j] = 0;
 }
 
-void	ft_print_op(char *op)
+void	print_op(char *op)
 {
 	int	len;
 
@@ -57,14 +57,14 @@ void	ft_print_op(char *op)
 	write(1, "\n", 1);
 }
 
-int	ft_can_swap(t_stack *stack)
+int	can_swap(t_stack *stack)
 {
 	if (!stack || !(stack->array) || stack->size < 2)
 		return (0);
 	return (1);
 }
 
-int	ft_can_push(t_stack *stack)
+int	can_push(t_stack *stack)
 {
 	if (!stack || !(stack->array) || stack->size == 0)
 		return (0);

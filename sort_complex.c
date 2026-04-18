@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_complex.c                                  :+:      :+:    :+:   */
+/*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 16:03:18 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:25 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:31:38 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_get_max_bits(t_stack *a)
+static int	get_max_bits(t_stack *a)
 {
 	int	max;
 	int	bits;
@@ -37,7 +37,7 @@ int	ft_get_max_bits(t_stack *a)
 	return (bits);
 }
 
-void	ft_radix_pass(t_data *d, int bit)
+static void	radix_pass(t_data *d, int bit)
 {
 	int	temp;
 	int	i;
@@ -49,36 +49,36 @@ void	ft_radix_pass(t_data *d, int bit)
 	while (i < temp)
 	{
 		if ((((d->a)->array[0] >> bit) & 1) == 0)
-			ft_pb(d);
+			pb(d);
 		else
-			ft_ra(d);
+			ra(d);
 		i++;
 	}
 	while ((d->b)->size != 0)
 	{
-		ft_pa(d);
+		pa(d);
 	}
 }
 
-void	ft_sort_complex(t_data *d)
+void	sort_complex(t_data *d)
 {
 	int	max_bits;
 	int	bits;
 
 	if (!d || !(d->a) || !(d->b) || !(d->b)->array || !(d->a)->array
-		|| (d->a)->size <= 1 || ft_is_sorted(d->a) == 1)
+		|| (d->a)->size <= 1 || is_sorted(d->a) == 1)
 		return ;
 	if (d->a->size <= 5)
 	{
-		ft_sort_five(d);
+		sort_five(d);
 		return ;
 	}
-	ft_assign_index(d->a);
-	max_bits = ft_get_max_bits(d->a);
+	assign_index(d->a);
+	max_bits = get_max_bits(d->a);
 	bits = 0;
 	while (bits < max_bits)
 	{
-		ft_radix_pass(d, bits);
+		radix_pass(d, bits);
 		bits++;
 	}
 }

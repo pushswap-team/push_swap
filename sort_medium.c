@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_medium.c                                   :+:      :+:    :+:   */
+/*   sort_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 16:03:29 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:32 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:32:39 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_get_chunk_size(int size)
+static int	get_chunk_size(int size)
 {
 	if (size <= 100)
 		return (10);
@@ -21,7 +21,7 @@ int	ft_get_chunk_size(int size)
 	return (size / 10);
 }
 
-void	ft_push_chunks(t_data *d, int chunk)
+static void	push_chunks(t_data *d, int chunk)
 {
 	int	i;
 
@@ -30,21 +30,21 @@ void	ft_push_chunks(t_data *d, int chunk)
 	{
 		if (d->a->array[0] <= i)
 		{
-			ft_pb(d);
-			ft_rb(d);
+			pb(d);
+			rb(d);
 			i++;
 		}
 		else if (d->a->array[0] <= i + chunk)
 		{
-			ft_pb(d);
+			pb(d);
 			i++;
 		}
 		else
-			ft_ra(d);
+			ra(d);
 	}
 }
 
-int	ft_find_max_pos(t_stack *b)
+static int	find_max_pos(t_stack *b)
 {
 	int	max_val;
 	int	max_pos;
@@ -65,31 +65,31 @@ int	ft_find_max_pos(t_stack *b)
 	return (max_pos);
 }
 
-void	ft_sort_medium(t_data *d)
+void	sort_medium(t_data *d)
 {
 	int	chunk_size;
 	int	max_pos;
 
 	if (d->a->size <= 5)
 	{
-		ft_sort_five(d);
+		sort_five(d);
 		return ;
 	}
-	ft_assign_index(d->a);
-	chunk_size = ft_get_chunk_size(d->a->size);
-	ft_push_chunks(d, chunk_size);
+	assign_index(d->a);
+	chunk_size = get_chunk_size(d->a->size);
+	push_chunks(d, chunk_size);
 	while ((d->b)->size > 0)
 	{
-		max_pos = ft_find_max_pos(d->b);
+		max_pos = find_max_pos(d->b);
 		if (max_pos <= d->b->size / 2)
 			while (max_pos-- > 0)
-				ft_rb(d);
+				rb(d);
 		else
 		{
 			max_pos = d->b->size - max_pos;
 			while (max_pos-- > 0)
-				ft_rrb(d);
+				rrb(d);
 		}
-		ft_pa(d);
+		pa(d);
 	}
 }

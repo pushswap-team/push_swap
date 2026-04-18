@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_simple.c                                   :+:      :+:    :+:   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:00:22 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:38 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:56:08 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_find_min_pos(t_stack *a)
+static int	find_min_pos(t_stack *a)
 {
 	int	min_value;
 	int	min_pos;
@@ -35,25 +35,25 @@ int	ft_find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-void	ft_push_min_to_b(t_data *d)
+static void	push_min_to_b(t_data *d)
 {
 	int	min_pos;
 
-	if (!d || !d->a || ft_can_push(d->a) == 0)
+	if (!d || !d->a || can_push(d->a) == 0)
 		return ;
-	min_pos = ft_find_min_pos(d->a);
+	min_pos = find_min_pos(d->a);
 	while (min_pos != 0)
 	{
 		if (min_pos <= (((d->a)->size) / 2))
-			ft_ra(d);
+			ra(d);
 		else
-			ft_rra(d);
-		min_pos = ft_find_min_pos(d->a);
+			rra(d);
+		min_pos = find_min_pos(d->a);
 	}
-	ft_pb(d);
+	pb(d);
 }
 
-void	ft_sort_three(t_data *d)
+void	sort_three(t_data *d)
 {
 	int	x;
 	int	y;
@@ -65,27 +65,27 @@ void	ft_sort_three(t_data *d)
 	y = (d->a)->array[1];
 	z = (d->a)->array[2];
 	if (x > y && y < z && x < z)
-		ft_sa(d);
+		sa(d);
 	if (x > y && y > z)
 	{
-		ft_sa(d);
-		ft_rra(d);
+		sa(d);
+		rra(d);
 	}
 	if (x < y && y > z && x < z)
 	{
-		ft_sa(d);
-		ft_ra(d);
+		sa(d);
+		ra(d);
 	}
 	if (x > y && y < z && x > z)
-		ft_ra(d);
+		ra(d);
 	if (x < y && y > z && x > z)
-		ft_rra(d);
+		rra(d);
 }
 
-void	ft_sort_simple(t_data *d)
+void	sort_simple(t_data *d)
 {
 	if (!d || !(d->a) || !(d->b) || !((d->a)->array) || !((d->b)->array)
-		|| ft_is_sorted(d->a) == 1)
+		|| is_sorted(d->a) == 1)
 		return ;
 	if ((d->a)->size <= 1)
 		return ;
@@ -94,13 +94,13 @@ void	ft_sort_simple(t_data *d)
 		if ((d->a)->array[0] < (d->a)->array[1])
 			return ;
 		else
-			return (ft_sa(d));
+			sa(d);
 	}
 	else if ((d->a)->size == 3)
-		return (ft_sort_three(d));
+		sort_three(d);
 	while ((d->a)->size > 3)
-		ft_push_min_to_b(d);
-	ft_sort_three(d);
+		push_min_to_b(d);
+	sort_three(d);
 	while ((d->b)->size > 0)
-		ft_pa(d);
+		pa(d);
 }

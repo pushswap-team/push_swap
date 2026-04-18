@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_utils.c                                   :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 16:03:45 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/17 16:03:50 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:44:49 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_is_full(t_stack *stack)
+int	is_full(t_stack *stack)
 {
 	if (!stack)
 		return (0);
@@ -24,7 +24,7 @@ int	ft_is_full(t_stack *stack)
 		return (0);
 }
 
-int	ft_is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	int	i;
 
@@ -37,40 +37,5 @@ int	ft_is_sorted(t_stack *stack)
 			return (0);
 		i++;
 	}
-	return (1);
-}
-
-int	ft_is_empty(t_stack *stack)
-{
-	if (!stack || stack->size == 0)
-		return (1);
-	else
-		return (0);
-}
-
-void	ft_free_stack(t_stack **stack)
-{
-	if (!stack || !*stack)
-		return ;
-	if ((*stack)->array)
-	{
-		free((*stack)->array);
-		(*stack)->array = 0;
-	}
-	(*stack)->size = 0;
-	(*stack)->capacity = 0;
-	free(*stack);
-	*stack = 0;
-}
-
-int	ft_init_stack(t_stack *stack, int capacity)
-{
-	if (!stack || capacity <= 0)
-		return (0);
-	stack->array = malloc(sizeof(int) * capacity);
-	if (!(stack->array))
-		return (0);
-	stack->size = 0;
-	stack->capacity = capacity;
 	return (1);
 }

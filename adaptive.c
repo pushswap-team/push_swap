@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_adaptive.c                                      :+:      :+:    :+:   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/09 18:16:44 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:01:30 by bayram-seve      ###   ########.fr       */
+/*   Created: 2026/04/18 17:40:28 by bdayakli          #+#    #+#             */
+/*   Updated: 2026/04/18 18:22:06 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-double	ft_compute_disorder(t_stack *a)
+double	compute_disorder(t_stack *a)
 {
 	int	mistakes;
 	int	total_pairs;

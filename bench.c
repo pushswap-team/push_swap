@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bench.c                                         :+:      :+:    :+:   */
+/*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:45:28 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:01:23 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:21:56 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_print_disorder(double disorder)
+static void	print_disorder(double disorder)
 {
 	int	whole;
 	int	frac;
@@ -40,15 +40,15 @@ void	ft_print_disorder(double disorder)
 	ft_putchar_fd('\n', 2);
 }
 
-void	ft_print_strategy_info(int strategy, int forced_s)
+static void	print_strategy_info(int strategy, int forced_s)
 {
 	const char	*name;
 	const char	*complexity;
 	int			size_name;
 	int			size_complexity;
 
-	name = ft_strategy_name(strategy);
-	complexity = ft_strategy_complexity(forced_s);
+	name = strategy_name(strategy);
+	complexity = strategy_complexity(forced_s);
 	size_name = ft_strlen(name);
 	size_complexity = ft_strlen(complexity);
 	write(2, "[bench] Strategy: ", 18);
@@ -58,7 +58,7 @@ void	ft_print_strategy_info(int strategy, int forced_s)
 	write(2, "\n", 1);
 }
 
-void	ft_print_op_line(const char *label, int value)
+static void	print_op_line(const char *label, int value)
 {
 	int	label_size;
 
@@ -68,35 +68,35 @@ void	ft_print_op_line(const char *label, int value)
 	ft_putnbr_fd(value, 2);
 }
 
-void	ft_print_op_breakdown(const t_opcount *ops)
+static void	print_op_breakdown(const t_opcount *ops)
 {
 	if (!ops)
 		return ;
 	write(2, "[bench] ", 8);
-	ft_print_op_line(("sa"), (ops->sa));
-	ft_print_op_line((" sb"), (ops->sb));
-	ft_print_op_line((" ss"), (ops->ss));
-	ft_print_op_line((" pa"), (ops->pa));
-	ft_print_op_line((" pb"), (ops->pb));
+	print_op_line(("sa"), (ops->sa));
+	print_op_line((" sb"), (ops->sb));
+	print_op_line((" ss"), (ops->ss));
+	print_op_line((" pa"), (ops->pa));
+	print_op_line((" pb"), (ops->pb));
 	write(2, "\n", 1);
 	write(2, "[bench] ", 8);
-	ft_print_op_line(("ra"), (ops->ra));
-	ft_print_op_line((" rb"), (ops->rb));
-	ft_print_op_line((" rr"), (ops->rr));
-	ft_print_op_line((" rra"), (ops->rra));
-	ft_print_op_line((" rrb"), (ops->rrb));
-	ft_print_op_line((" rrr"), (ops->rrr));
+	print_op_line(("ra"), (ops->ra));
+	print_op_line((" rb"), (ops->rb));
+	print_op_line((" rr"), (ops->rr));
+	print_op_line((" rra"), (ops->rra));
+	print_op_line((" rrb"), (ops->rrb));
+	print_op_line((" rrr"), (ops->rrr));
 	write(2, "\n", 1);
 }
 
-void	ft_print_bench(const t_data *d, int strategy, int forced_s)
+void	print_bench(const t_data *d, int strategy, int forced_s)
 {
 	if (!d)
 		return ;
-	ft_print_disorder(d->disorder);
-	ft_print_strategy_info(strategy, forced_s);
+	print_disorder(d->disorder);
+	print_strategy_info(strategy, forced_s);
 	write(2, "[bench] Total ops: ", 19);
 	ft_putnbr_fd((d->ops).total, 2);
 	write(2, "\n", 1);
-	ft_print_op_breakdown(&(d->ops));
+	print_op_breakdown(&(d->ops));
 }

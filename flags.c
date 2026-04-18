@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.c                                         :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 17:32:36 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/17 16:01:34 by bayram-seve      ###   ########.fr       */
+/*   Updated: 2026/04/18 18:59:07 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-int	ft_flag_to_strategy(const char *arg)
+static int	flag_to_strategy(const char *arg)
 {
 	if (!arg)
 		return (-1);
@@ -27,18 +27,18 @@ int	ft_flag_to_strategy(const char *arg)
 	return (-1);
 }
 
-int	ft_is_flag(const char *arg)
+static int	is_flag(const char *arg)
 {
 	if (!arg)
 		return (0);
 	if (ft_strncmp("--bench", arg, sizeof("--bench")) == 0)
 		return (1);
-	if (ft_flag_to_strategy(arg) != -1)
+	if (flag_to_strategy(arg) != -1)
 		return (1);
 	return (0);
 }
 
-int	ft_helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
+static int	helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
 {
 	if (ft_strncmp(("--bench"), (arg), sizeof("--bench")) == 0)
 	{
@@ -47,18 +47,18 @@ int	ft_helper_parse_flag(const char *arg, int *forced_s, int *bench_f)
 		else
 			*bench_f = 1;
 	}
-	else if (ft_flag_to_strategy(arg) != -1)
+	else if (flag_to_strategy(arg) != -1)
 	{
 		if (*forced_s != PS_ADAPTIVE)
 			return (-1);
-		*forced_s = ft_flag_to_strategy(arg);
+		*forced_s = flag_to_strategy(arg);
 	}
 	else
 		return (-1);
 	return (0);
 }
 
-int	ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f)
+int	parse_flags(int argc, char **argv, int *forced_s, int *bench_f)
 {
 	int	i;
 	int	j;
@@ -68,30 +68,30 @@ int	ft_parse_flags(int argc, char **argv, int *forced_s, int *bench_f)
 	*bench_f = 0;
 	*forced_s = PS_ADAPTIVE;
 	i = 1;
-	while (i < argc && ft_is_flag(argv[i]))
+	while (i < argc && is_flag(argv[i]))
 	{
-		if (ft_helper_parse_flag(argv[i], forced_s, bench_f) == -1)
+		if (helper_parse_flag(argv[i], forced_s, bench_f) == -1)
 			return (-1);
 		i++;
 	}
 	j = i;
 	while (j < argc)
 	{
-		if (ft_is_flag(argv[j]) == 1)
+		if (is_flag(argv[j]) == 1)
 			return (-1);
 		j++;
 	}
 	return (0);
 }
 
-int	ft_first_number_index(int argc, char **argv)
+int	first_number_index(int argc, char **argv)
 {
 	int	i;
 
 	if (!argv || argc < 1)
 		return (-1);
 	i = 1;
-	while (i < argc && ft_is_flag(argv[i]))
+	while (i < argc && is_flag(argv[i]))
 		i++;
 	return (i);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_index.c                                         :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+        */
+/*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 15:59:50 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/17 16:01:39 by bayram-seve      ###   ########.fr       */
+/*   Created: 2026/04/18 17:47:36 by bdayakli          #+#    #+#             */
+/*   Updated: 2026/04/18 19:06:56 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_init_index(int *idx, int size)
+static void	init_index(int *idx, int size)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	ft_init_index(int *idx, int size)
 	}
 }
 
-int	ft_get_min_pos(t_stack *a, int *idx)
+int	get_min_pos(t_stack *a, int *idx)
 {
 	int	i;
 	int	min;
@@ -45,7 +45,7 @@ int	ft_get_min_pos(t_stack *a, int *idx)
 	return (pos);
 }
 
-void	ft_assign_index(t_stack *a)
+void	assign_index(t_stack *a)
 {
 	int	*idx;
 	int	i;
@@ -55,10 +55,10 @@ void	ft_assign_index(t_stack *a)
 	idx = malloc(sizeof(int) * a->size);
 	if (!idx)
 		return ;
-	ft_init_index(idx, a->size);
+	init_index(idx, a->size);
 	i = 0;
 	while (i < a->size)
-		idx[ft_get_min_pos(a, idx)] = i++;
+		idx[get_min_pos(a, idx)] = i++;
 	i = 0;
 	while (i < a->size)
 	{

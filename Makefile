@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bayram-seven <bayram-seven@student.42.f    +#+  +:+       +#+         #
+#    By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/23 14:10:16 by bayram-seve       #+#    #+#              #
-#    Updated: 2026/04/17 16:04:43 by bayram-seve      ###   ########.fr        #
+#    Updated: 2026/04/18 19:02:47 by bdayakli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,26 @@ RM          = rm -f
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
-SRCS        = ft_strategy.c \
-			ft_adaptive.c \
-			ft_bench.c \
-			ft_flags.c \
-			ft_parse_args.c \
-			ft_parse_atol.c \
-			ft_parse_halpers.c \
-			ft_parse_halpers2.c \
+SRCS        = strategy.c \
+			adaptive.c \
+			bench.c \
+			flags.c \
+			parse_args.c \
+			parse_atoli.c \
+			parse_halpers.c \
+			parse_halpers2.c \
 			main.c \
-			ft_index.c \
-			ft_sort_simple.c \
-			ft_sort_medium.c \
-			ft_sort_complex.c \
-			ft_operations_push.c \
-			ft_operations_rotate.c \
-			ft_operations_reverse_rotate.c \
-			ft_operations_swap.c \
-			ft_stack_utils.c \
-			ft_stack_utils2.c \
-			ft_sort_small.c \
+			index.c \
+			sort_simple.c \
+			sort_medium.c \
+			sort_complex.c \
+			operations_push.c \
+			operations_rotate.c \
+			operations_reverse_rotate.c \
+			operations_swap.c \
+			stack_utils.c \
+			stack_utils2.c \
+			sort_small.c \
 
 OBJS        = $(SRCS:.c=.o)
 
@@ -49,7 +49,7 @@ $(LIBFT):
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-%.o: %.c ft_push_swap.h
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
