@@ -6,7 +6,7 @@
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 21:23:38 by bdayakli          #+#    #+#             */
-/*   Updated: 2026/04/18 18:44:31 by bdayakli         ###   ########.fr       */
+/*   Updated: 2026/04/18 19:35:12 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	bring_min_to_top(t_data *d, int min_pos)
 {
 	int	i;
 
-	if (min_pos <= d->a->size / 2)
+	if (min_pos <= (d->a)->size / 2)
 	{
 		i = min_pos;
 		while (i-- > 0)
@@ -40,7 +40,7 @@ static void	bring_min_to_top(t_data *d, int min_pos)
 	}
 	else
 	{
-		i = d->a->size - min_pos;
+		i = (d->a)->size - min_pos;
 		while (i-- > 0)
 			rra(d);
 	}
