@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdayakli <bdayakli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 16:03:29 by bayram-seve       #+#    #+#             */
-/*   Updated: 2026/04/18 18:32:39 by bdayakli         ###   ########.fr       */
+/*   Created: 2026/04/18 19:46:55 by bdayakli          #+#    #+#             */
+/*   Updated: 2026/04/18 20:22:03 by bdayakli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	push_chunks(t_data *d, int chunk)
 	i = 0;
 	while ((d->a)->size > 0)
 	{
-		if (d->a->array[0] <= i)
+		if ((d->a)->array[0] <= i)
 		{
 			pb(d);
 			rb(d);
